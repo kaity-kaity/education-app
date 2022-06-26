@@ -1,5 +1,4 @@
 body {
-  background: #bdc3c7;
   font-size: 16px;
   font-weight: bold;
   font-family: Arial, sans-serif;
@@ -25,7 +24,8 @@ main {
 .stop {
   cursor: pointer;
   width: 90px;
-  height: 32px;background: #ef454a;
+  height: 32px;
+  background: #ef454a;
   box-shadow: 0 4px 0 #d1483e;
   border-radius: 16px;
   line-height: 32px;
@@ -38,7 +38,8 @@ main {
 #spin {
   cursor: pointer;
   width: 280px;
-  height: 36px;background: #3498db;
+  height: 36px;
+  background: #3498db;
   box-shadow: 0 4px 0 #2880b9;
   border-radius: 18px;
   line-height: 36px;

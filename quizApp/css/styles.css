@@ -1,5 +1,5 @@
 body {
-  background: #efdec1;
+  background: #eeeeee;
   font-size: 14px;
   font-family: Verdana, sans-serif;
 }
@@ -44,7 +44,7 @@ body {
 }
 
 #choices > li.correct::after {
-  content: ' ... correct!';
+  content: " ... 正解!";
 }
 
 #choices > li.wrong {
@@ -55,10 +55,11 @@ body {
 }
 
 #choices > li.wrong::after {
-  content: ' ... wrong!';
+  content: " ... 不正解!";
 }
 
-#btn, #result > a {
+#btn,
+#result > a {
   background: #3498db;
   padding: 8px;
   border-radius: 4px;
@@ -101,4 +102,3 @@ body {
   display: block;
   text-decoration: none;
 }
-

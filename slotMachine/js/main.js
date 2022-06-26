@@ -1,50 +1,52 @@
-'use strict'
+"use strict";
 
 {
   class Panel {
     constructor() {
-      const section = document.createElement('section')
-      section.classList.add('panel')
+      const section = document.createElement("section");
+      section.classList.add("panel");
 
-      this.img = document.createElement('img')
-      this.img.src = this.getRandomImage()
+      this.img = document.createElement("img");
+      this.img.src = this.getRandomImage();
       this.timeoutId = undefined;
 
-      this.stop = document.createElement('div')
-      this.stop.textContent = 'STOP'
-      this.stop.classList.add('stop', 'inactive')
-      this.stop.addEventListener('click', () => {
-        if (this.stop.classList.contains('inactive')) {
+      this.stop = document.createElement("div");
+      this.stop.textContent = "STOP";
+      this.stop.classList.add("stop", "inactive");
+      this.stop.addEventListener("click", () => {
+        if (this.stop.classList.contains("inactive")) {
           return;
         }
 
-        this.stop.classList.add('inactive');
+        this.stop.classList.add("inactive");
         clearTimeout(this.timeoutId);
 
         panelsLeft--;
 
         if (panelsLeft === 0) {
-          spin.classList.remove('inactive');
+          spin.classList.remove("inactive");
           panelsLeft = 3;
           checkResult();
         }
-      })
+      });
 
       section.appendChild(this.img);
       section.appendChild(this.stop);
 
-      const main = document.querySelector('main');
-      main.appendChild(section)
+      const main = document.querySelector("main");
+      main.appendChild(section);
     }
 
     getRandomImage() {
       const images = [
-        'img/seven.png',
-        'img/cherry.png',
-        'img/bell.png',
-      ]
+        "img/ichika.png",
+        "img/nino.png",
+        "img/miku.png",
+        "img/yotsuba.png",
+        "img/itsuki.png",
+      ];
 
-      return images[Math.floor(Math.random() * images.length)]
+      return images[Math.floor(Math.random() * images.length)];
     }
 
     spin() {
@@ -59,15 +61,15 @@
     }
 
     unmatch() {
-      this.img.classList.add('unmatched')
+      this.img.classList.add("unmatched");
     }
 
     activate() {
-      this.img.classList.remove('unmatched');
-      this.stop.classList.remove('inactive');
+      this.img.classList.remove("unmatched");
+      this.stop.classList.remove("inactive");
     }
-  } 
-  
+  }
+
   function checkResult() {
     if (panels[0].isUnmatched(panels[1], panels[2])) {
       panels[0].unmatch();
@@ -80,23 +82,19 @@
     }
   }
 
-  const panels = [
-    new Panel(),
-    new Panel(),
-    new Panel(),
-  ]
+  const panels = [new Panel(), new Panel(), new Panel()];
 
   let panelsLeft = 3;
 
-  const spin = document.getElementById('spin')
-  spin.addEventListener('click', () => {
-    if (spin.classList.contains('inactive')) {
+  const spin = document.getElementById("spin");
+  spin.addEventListener("click", () => {
+    if (spin.classList.contains("inactive")) {
       return;
     }
-    spin.classList.add('inactive');
-    panels.forEach(panel => {
-      panel.activate()
-      panel.spin()
-    })
-  })
+    spin.classList.add("inactive");
+    panels.forEach((panel) => {
+      panel.activate();
+      panel.spin();
+    });
+  });
 }
